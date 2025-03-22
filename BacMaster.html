@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BacMaster Pro | 20/20 Guaranteed</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --background: #0f172a;
+            --text: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.05);
+            --achievement-gold: #FFD700;
+            --facebook: #1877F2;
+            --instagram: #E1306C;
+        }
+
+        [data-theme="light"] {
+            --primary: #4f46e5;
+            --secondary: #059669;
+            --background: #ffffff;
+            --text: #1e293b;
+            --glass: rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', system-ui;
+            background: var(--background);
+            color: var(--text);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-glass {
+            background: var(--glass) !important;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass);
+        }
+
+        .achievement-badge {
+            background: linear-gradient(45deg, var(--achievement-gold), #daa520);
+            color: #1e293b !important;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            border: 2px solid var(--text);
+            margin-top: 5vw;
+        }
+
+        .service-card {
+            background: var(--glass);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .pricing-card {
+            transition: all 0.3s;
+            border: 2px solid var(--glass);
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.03);
+        }
+
+        .social-icon {
+            transition: all 0.3s !important;
+        }
+
+        .facebook-hover:hover {
+            color: var(--facebook) !important;
+            transform: scale(1.2);
+        }
+
+        .instagram-hover:hover {
+            color: var(--instagram) !important;
+            transform: scale(1.2);
+        }
+    section {
+        scroll-margin-top: 80px;
+        padding-top: 30px;
+    }
+    .nav-item{
+        font-weight: bold;
+    }
+    #themeToggle {
+        background-color: rgba(0, 0, 0, 0.603) !important;
+        color: rgb(255, 255, 255) !important;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+    #themeToggle:hover {
+        background-color: black !important;
+        color: white !important;
+    }
+    .modern-cert-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #4F46E5, #6366F1);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 50%;
+}
+
+.modern-cert-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: all 0.6s ease;
+}
+
+.modern-cert-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modern-cert-btn:hover::before {
+    left: 100%;
+}
+
+.modern-cert-btn .icon-container {
+    transition: transform 0.3s ease;
+}
+
+.modern-cert-btn:hover .icon-container {
+    transform: translateX(3px);
+}
+@keyframes buttonEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modern-cert-btn {
+    animation: buttonEntrance 0.6s ease;
+}
+.modern-badge {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 179, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.modern-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: all 0.6s ease;
+}
+
+.modern-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.modern-badge:hover::before {
+    left: 100%;
+}
+
+.badge-icon {
+    font-size: 1.5rem;
+    color: #FF9800;
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+}
+
+.modern-badge:hover .badge-icon {
+    transform: rotate(-15deg) scale(1.1);
+}
+
+.badge-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.badge-title {
+    font-weight: 700;
+    color: #333;
+    letter-spacing: -0.3px;
+    transition: color 0.3s ease;
+}
+
+.badge-score {
+    font-size: 0.9em;
+    color: #666;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.modern-badge:hover .badge-title {
+    color: #000;
+}
+
+.modern-badge:hover .badge-score {
+    color: #444;
+}
+.modern-cert-btn {
+    background: linear-gradient(45deg, #FF9800, #FB8C00);
+}
+.modern-cert-btn:hover .icon-container {
+    transform: translateX(5px);
+}
+
+@keyframes badgeEntrance {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.modern-badge {
+    animation: badgeEntrance 0.6s ease forwards;
+}
+.rating-section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .rating-card {
+            border: none;
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .rating-card:hover {
+            transform: scale(1.05);
+        }
+        .stars {
+            color: #f1c40f;
+        }
+        .profile-pic {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .rating-content {
+            flex: 1;
+        }
+        .card {
+            background: linear-gradient(rgb(137, 184, 255),rgb(156, 138, 255));
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 10px rgba(128, 128, 128, 0.7); background: linear-gradient(45deg, #343a40, #007bff); }
+            25% { transform: scale(1.1); box-shadow: 0 0 20px rgba(0, 0, 255, 0.9); background: linear-gradient(45deg, #007bff, #6f42c1); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(75, 0, 130, 0.9); background: linear-gradient(45deg, #6f42c1, #000000); }
+            75% { transform: scale(1.1); box-shadow: 0 0 20px rgba(0, 0, 0, 0.9); background: linear-gradient(45deg, #000000, #343a40); }
+            100% { transform: scale(1); box-shadow: 0 0 10px rgba(128, 128, 128, 0.7); background: linear-gradient(45deg, #343a40, #007bff); }
+        }
+        .btn-animated {
+            color: white;
+            font-size: 20px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            border: none;
+            transition: all 0.3s ease-in-out;
+            animation: pulse 2s infinite;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-animated:hover {
+            background-color: #fcff40;
+            color: black;
+            box-shadow: 0 0 40px rgba(255, 255, 0, 1);
+            transform: scale(1.2);
+            animation: none;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar nav-glass navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-graduation-cap me-2"></i>BacMaster Pro
+            </a>
+            <div class="d-flex gap-3 align-items-center">
+                <button class="btn btn-sm theme-aware" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="min-vh-100 d-flex align-items-center pt-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="d-flex align-items-center gap-3 mb-4" style="margin-top:30px;">
+                        <div class="modern-badge">
+                            <i class="fas fa-trophy badge-icon"></i>
+                            <div class="badge-content">
+                                <span class="badge-title">1st Place Bizerte algorithm and programming BAC 2024</span>
+                                <span class="badge-score">19.83/20</span>
+                            </div>
+                        </div>
+                        <a href="badge.html" class="modern-cert-btn">
+                            <span>View Certification</span>
+                            <div class="icon-container">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <h1 class="display-1 fw-bold mb-4">Master Programming & Algorithms</h1>
+                    <p class="lead mb-5">20/20 Score Guarantee in Bac Informatique</p>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-primary btn-lg px-5" onclick="smoothScroll('#pricing')">Get Started</button>
+                        <button class="btn btn-outline-secondary btn-lg px-5" onclick="smoothScroll('#services')">Learn More</button>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hologram-card p-4 rounded-4">
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <div class="text-center p-4 rounded-4" style="background: var(--glass);">
+                                    <i class="fab fa-python fs-1 mb-3 text-primary"></i>
+                                    <h5>Python Mastery</h5>
+                                    <p class="small">Advanced Algorithms</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="text-center p-4 rounded-4" style="background: var(--glass);">
+                                    <i class="fas fa-palette fs-1 mb-3 text-primary"></i>
+                                    <h5>Qt Designer</h5>
+                                    <p class="small">Professional UI/UX</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 display-4 fw-bold">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="zoom-in">
+                    <div class="service-card p-4 h-100 rounded-4">
+                        <i class="fas fa-code fs-1 mb-3 text-primary"></i>
+                        <h3>Algorithm Mastery</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Complex Problem Solving</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Optimization Techniques</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Competitive Programming</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="service-card p-4 h-100 rounded-4">
+                        <i class="fas fa-paint-brush fs-1 mb-3 text-primary"></i>
+                        <h3>Qt Design Pro</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Professional UI Design</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Real-World Projects</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Best Practices</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="service-card p-4 h-100 rounded-4">
+                        <i class="fas fa-chart-line fs-1 mb-3 text-primary"></i>
+                        <h3>Exam Strategy</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Time Management</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Mock Exams</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Grading Secrets</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container rating-section">
+        <h2 class="text-center mb-4">What Our Friends Say</h2>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="card rating-card p-3">
+                    <img src="brahim.jpeg" alt="John Doe" class="profile-pic">
+                    <div class="rating-content">
+                        <h5>Brahim Mahjoub</h5>
+                        <p class="stars">★★★★★</p>
+                        <p>"beker aaweni barcha bech n9awi f niveau mte3i fl algorithme et programmation awel laam jebt 4 fl control wfel synthese jebt 15"<br><br></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="card rating-card p-3">
+                    <img src="firas.jpg" alt="Jane Smith" class="profile-pic">
+                    <div class="rating-content">
+                        <h5>Firas Baklouti</h5>
+                        <p class="stars">★★★★☆</p>
+                        <p>"beker 3alamni kifech nkhou l problème b logique w na9smo l des étapes b sehl. Tawa 9adet n7el des exercices wahdi w nfhem l’idée mloul!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="pricing" class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="text-center mb-5 display-4 fw-bold">Pricing Plans</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4" data-aos="fade-down">
+                    <div class="pricing-card p-4 h-100 rounded-4 bg-glass">
+                        <h3 class="text-center">Free Trial</h3>
+                        <div class="text-center my-4">
+                            <span class="display-3 fw-bold">0 TND<br> <span style="font-size: 2rem;">/1 Session</span></span>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>1 Free Session</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Basic Assessment</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Study Plan Preview</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-card p-4 h-100 rounded-4 bg-primary">
+                        <h3 class="text-center">Group Program</h3>
+                        <div class="text-center my-4">
+                            <span class="display-3 fw-bold">60 TND<br> <span style="font-size: 2rem;">/4 Sessions</span></span>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-white me-2"></i>Weekly Group Sessions</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-white me-2"></i>Collaborative Learning</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-white me-2"></i>Study Materials</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-down" data-aos-delay="200">
+                    <div class="pricing-card p-4 h-100 rounded-4 bg-glass">
+                        <h3 class="text-center">Private Coaching</h3>
+                        <div class="text-center my-4">
+                             <span class="display-3 fw-bold">100 TND <br> <span style="font-size: 2rem;">/4 Sessions</span></span>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>1-on-1 Sessions</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Customized Plan</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>24/7 Support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button-container">
+            <a href="tel:+216 54901177"><button class="btn btn-animated">Join Now</button></a>
+        </div>
+    </section>
+
+
+    <footer id="contact" class="py-5" style="background: var(--glass);padding-left:5vw;" >
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5>Introduction</h5>
+                    <p class="mt-4">
+                        BacMaster Pro is your premier source for revision courses that guarantee success in Bac Informatique. Join us to excel in your exams.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Info</h5>
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-3"><i class="fas fa-map-marker-alt me-2"></i>Bizerte, Tunisia</li>
+                        <li class="mb-3"><i class="fas fa-phone me-2"><a href="tel:+216 54901177" style="text-decoration: none;color: white;"></i>+216 54 901 177</li></a>
+                        <li class="mb-3"><i class="fas fa-envelope me-2"><a href="mailto:bekerjemai45@gmail.com" style="text-decoration: none;color: white;"></i>bekerjemai45@gmail.com</li></a>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Social Media</h5>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="https://www.facebook.com/profile.php?id=61569324955011&locale=fr_FR" class="social-icon facebook-hover text-decoration-none fs-3">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-icon instagram-hover text-decoration-none fs-3">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="tel:+216 54901177" class="social-icon whatsapp-hover text-decoration-none fs-3">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5 pt-3 border-top">
+                © 2024 BacMaster Pro. All rights reserved.  designed by <a href="https://www.facebook.com/profile.php?id=61569324955011&locale=fr_FR" target="_blank">Beker Jemai</a>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const setTheme = (theme) => {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeToggle.querySelector('i').className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            document.getElementById('pricing').style.color = "white";
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            setTheme(currentTheme === 'light' ? 'dark' : 'light');
+        });
+        function smoothScroll(target) {
+            document.querySelector(target).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-in-out'
+        });
+        AOS.init({
+        duration: 800,
+        once: true,
+        easing: 'ease-out-quad'
+      });
+        window.addEventListener('load', () => {
+            const preloader = document.querySelector('.preloader');
+            if(preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(() => preloader.remove(), 500);
+            }
+        });
+    </script>
+</body>
+</html>
